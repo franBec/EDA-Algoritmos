@@ -1,0 +1,44 @@
+/*
+biseccion
+	limite inferior inclusivo
+	limite superor exclusivo
+	segmento mas grande a izquierda
+	testigo a derecha
+*/
+Pertenece(in x):boolean{
+	li = 0;
+	ls = N+1;
+
+	while(li + 1 < ls - 1){
+		m = floor((li+ls)/2);
+		if(V[m] < x)
+			li = m;
+		else
+			ls = m+1;
+	}
+
+	return(li+1 == ls-1) && (V[li+1] == x)
+}
+
+
+/*
+biseccion
+	limites inclusivos
+	segmento mas grande a izquierda
+	testigo a derecha
+*/
+
+Pertenece(in x):boolean{
+	li = 0;
+	ls = N;
+
+	while(li < ls - 1){
+		m = ceil((li+ls)/2);
+		if(V[m] < x)
+			li = m;
+		else
+			ls = m;
+	}
+
+	return(li == ls-1) && (V[ls] == x)
+}
